@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBG">
+    android:background="#FFFFFF">
+
+    <!--Page Title Text-->
+    <ImageView
+        android:id="@+id/ImageProfile"
+        android:layout_width="289dp"
+        android:layout_height="266dp"
+        android:src="@drawable/ic_person_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Me_or_profile_title"
+        app:srcCompat="@drawable/oldman" />
 
     <TextView
+        android:id="@+id/Me_or_profile_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="102dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="39dp"
         android:background="@color/colorAccent"
         android:fontFamily="@font/source_code_pro_medium"
+        android:gravity="top"
         android:paddingLeft="25dp"
         android:paddingTop="40dp"
         android:paddingBottom="10dp"
@@ -16,6 +34,78 @@
         android:textAlignment="viewStart"
         android:textColor="@android:color/black"
         android:textSize="36sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ImageProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="290dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:hint="Name"
+        android:text="Name: James Smith"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ImageProfile" />
+
+    <TextView
+        android:id="@+id/Age"
+        android:layout_width="293dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="12dp"
+        android:hint="Age"
+        android:text="Age: 70"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Name" />
+
+    <TextView
+        android:id="@+id/Telephone"
+        android:layout_width="289dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="12dp"
+        android:hint="Telephone"
+        android:text="Telephone: 1234567890"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Age" />
+
+    <TextView
+        android:id="@+id/Address"
+        android:layout_width="285dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:hint="Address"
+        android:text="Address: New York"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Telephone"
+        app:layout_constraintVertical_bias="0.081" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

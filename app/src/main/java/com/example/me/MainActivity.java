@@ -19,9 +19,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bottomNavigation = findViewById(R.id.bottom_navigation);
-        
         loadFragment(new home());
+        bottomNavigation = findViewById(R.id.bottom_navigation);
         
         BottomNavigationView.OnNavigationItemSelectedListener navigation =
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -32,21 +31,26 @@ public class MainActivity extends AppCompatActivity {
                         {
                             case R.id.navigation_home:
                                 selectedFragment = new home();
+                                loadFragment(selectedFragment);
                                 return true;
                             case R.id.navigation_contacts:
                                 selectedFragment = new contacts();
+                                loadFragment(selectedFragment);
                                 return true;
 
                             case R.id.navigation_camera:
                                 selectedFragment = new camera();
+                                loadFragment(selectedFragment);
                                 return true;
 
                             case R.id.navigation_calls:
                                 selectedFragment = new calls();
+                                loadFragment(selectedFragment);
                                 return true;
 
                             case R.id.navigation_me_or_personal:
                                 selectedFragment = new me_personal();
+                                loadFragment(selectedFragment);
                                 return true;
                         }
                         return false;
