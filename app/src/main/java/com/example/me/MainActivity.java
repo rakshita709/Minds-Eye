@@ -8,20 +8,46 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigation;
+    TextView Temp , Date, City, Description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loadFragment(new home());
         bottomNavigation = findViewById(R.id.bottom_navigation);
-        
+
+        Temp = findViewById(R.id.Temperature_number);
+        Date = findViewById(R.id.Date);
+        City = findViewById(R.id.City);
+        Description = findViewById(R.id.Temperature_Description);
+
+        loadFragment(new home());
+
+        findWeather();
+
         BottomNavigationView.OnNavigationItemSelectedListener navigation =
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -65,5 +91,65 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.fragment_container,fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    public void findWeather()
+    {
+        String url = "http://api.openweathermap.org/data/2.5/weather?q=delhi,In&appid=5fbef19c2ae09857e08b7f1e452f819c";
+
+        JsonObjectRequest jor = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONObject main_object = response.getJSONObject("main");
+                    JSONArray array = response.getJSONArray("Weather");
+                    JSONObject object = array.getJSONObject(0);
+                    String temp = String.valueOf(main_object.getDouble("temp"));
+                    String description = object.getString("description");
+                    String city = response.getString("name");
+
+                    //Temp.setText(temp);
+                    Description.setText(description);
+                    City.setText(city);
+
+                    Calendar calendar = Calendar.getInstance();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE-MM-dd");
+                    String formatted_date = dateFormat.format(calendar.getTime());
+
+                    Date.setText(formatted_date);
+
+                    double temp_int = Double.parseDouble(temp);
+                    double centi = (temp_int-32)/1.8000;
+                    centi = Math.round(centi);
+                    int i = (int)centi;
+                    Temp.setText(String.valueOf(i));
+
+                } catch (JSONException e)
+                    {
+                        e.printStackTrace();
+                    }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(jor);
+
+    }
+
+
+    public void FloatingBTN(View view) {
+        FloatingActionButton fab = findViewById(R.id.FloatingBTN);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"FAB Clicked!",Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

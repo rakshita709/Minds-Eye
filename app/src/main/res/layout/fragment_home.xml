@@ -6,23 +6,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/Today_TV_home"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:background="@color/colorAccent"
-        android:fontFamily="@font/source_code_pro_medium"
-        android:hint="ﾟC"
-        android:paddingLeft="25dp"
-        android:paddingTop="40dp"
-        android:paddingBottom="10dp"
-        android:text="Today"
-        android:textAlignment="viewStart"
-        android:textColor="@android:color/black"
-        android:textSize="36sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Today_TV_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/source_code_pro_medium"
+            android:paddingLeft="25dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="10dp"
+            android:text="Today: "
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/black"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Date"
+            android:layout_width="226dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_code_pro_medium"
+            android:paddingTop="40dp"
+            android:paddingBottom="10dp"
+            android:text="Date"
+            android:textColor="@android:color/black"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/Forecast"
@@ -33,7 +51,7 @@
         android:background="@color/colorAccent">
 
         <LinearLayout
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -42,32 +60,50 @@
                 android:id="@+id/Temperature_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="30 °C"
+                android:text="27 °C"
                 android:textAlignment="textStart"
-
                 android:textColor="@android:color/black"
                 android:textSize="70dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/Temperature_Condition"
+                android:id="@+id/City"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
-                android:text="Sunny"
+                android:text="Delhi"
                 android:textAlignment="viewStart"
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/Weather_ImageView"
-            android:layout_width="110dp"
-            android:layout_height="97dp"
-            android:src="@drawable/ic_wb_sunny_black_24dp"
-            android:layout_marginStart="37dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="50dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="20dp">
+
+            <ImageView
+                android:id="@+id/Weather_ImageView"
+                android:layout_width="match_parent"
+                android:layout_height="87dp"
+                android:src="@drawable/ic_wb_sunny_black_24dp" />
+
+            <TextView
+                android:id="@+id/Temperature_Description"
+                android:layout_width="163dp"
+                android:layout_height="36dp"
+                android:paddingRight="10dp"
+                android:text="Sunny"
+                android:textAlignment="viewEnd"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 
@@ -88,12 +124,23 @@
             android:textSize="24dp"
             android:textStyle="bold" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RecyclerView_Events_Today"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorBG"
-            android:padding="10dp" />
+            android:layout_height="match_parent">
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/FloatingBTN"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                app:fabSize="normal"
+                app:elevation="6dp"
+                android:onClick="FloatingBTN"
+                android:src="@drawable/plus"/>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
     </LinearLayout>
