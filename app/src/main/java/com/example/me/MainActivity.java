@@ -52,9 +52,6 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigation;
     TextView Temp, Date, City, Description;
 
-    DBhelper dBhelper;
-    ArrayAdapter<String> mAdapter;
-    ListView listTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +63,6 @@ public class MainActivity extends AppCompatActivity {
         Date = findViewById(R.id.Date);
         City = findViewById(R.id.City);
         Description = findViewById(R.id.Temperature_Description);
-
-        dBhelper = new DBhelper(this);
-        listTask = findViewById(R.id.ListViewHome);
 
 
         /*button1.setOnClickListener(new View.OnClickListener() {
@@ -136,19 +130,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.setOnNavigationItemSelectedListener(navigation);
     }
 
-    private void loadTaskList() {
-        ArrayList<String> taskList = dBhelper.getTaskList();
-        if(mAdapter == null) {
-            mAdapter = new ArrayAdapter<String>(this,R.layout.row,R.id.taskTitle,taskList);
-            listTask.setAdapter(mAdapter);
-        }
-        else {
-            mAdapter.clear();
-            mAdapter.addAll(taskList);
-            mAdapter.notifyDataSetChanged();
-        }
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_to_do_list,menu);
@@ -159,42 +140,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_add_task:
-                final EditText taskEditText = new EditText(this);
-                AlertDialog dialog = new AlertDialog.Builder(this)
-                        .setTitle("Add New Task")
-                        .setMessage("What is the task?")
-                        .setView(taskEditText)
-                        .setPositiveButton("Add", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String task = String.valueOf(taskEditText.getText());
-                                dBhelper.insertNewTask(task);
-                                loadTaskList();
-
-                            }
-                        })
-                        .setNegativeButton("Cancel",null)
-                        .create();
-                return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void deleteTask(View view) {
-        View parent = (View) view.getParent();
-        TextView taskTextViews = findViewById(R.id.taskTitle);
-        String task = String.valueOf(taskTextViews.getText());
-        dBhelper.deleteTask(task);
-        loadTaskList();
-    }
-
-
 
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
