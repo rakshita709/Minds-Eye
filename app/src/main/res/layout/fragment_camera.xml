@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/ContactsFragmentHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
@@ -17,5 +18,21 @@
         android:textColor="@android:color/black"
         android:textSize="36sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/textView"
+        style="@style/Widget.MaterialComponents.TextView"
+        android:layout_width="339dp"
+        android:layout_height="125dp"
+        android:layout_below="@id/ContactsFragmentHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:background="@color/colorBG"
+        android:text="Click this button to take a picture of someone you may not recognise"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="23dp" />
+    
 
 </RelativeLayout>

@@ -18,7 +18,7 @@
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:background="@color/colorBG"
-        app:itemIconSize="30dp"
+        app:itemIconSize="25dp"
         app:itemIconTint="#000"
         app:itemTextColor="#000"
         app:menu="@menu/bottom_navigation_menu" />

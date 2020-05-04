@@ -35,7 +35,7 @@
             android:fontFamily="@font/source_code_pro_medium"
             android:paddingTop="40dp"
             android:paddingBottom="10dp"
-            android:text="DD-mon-YYYY"
+            android:text="21-Apr-2020"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="30sp"
@@ -56,6 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
+            android:background="@color/colorBG"
             android:orientation="vertical">
 
             <TextView
@@ -72,7 +73,7 @@
                 android:id="@+id/City"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
-                android:text="City"
+                android:text="Delhi"
                 android:textAlignment="viewStart"
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />
@@ -82,8 +83,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:layout_marginRight="30dp"
+            android:background="@color/colorBG"
             android:orientation="vertical">
 
             <ImageView
@@ -97,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingRight="10dp"
-                android:text="Weather Description"
+                android:text="Sunny during the day"
                 android:textAlignment="viewEnd"
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />
@@ -112,7 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="260dp"
         android:layout_marginRight="20dp"
         android:orientation="vertical">
 
@@ -126,16 +127,51 @@
             android:textSize="24dp"
             android:textStyle="bold" />
 
+        <!--<TextView
+            android:id="@+id/random1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:background="#45c5e6"
+            android:text="Take medicine after lunch."
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="24sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lunch with daughter at 1pm."
+            android:background="#45c5e6"
+            android:padding="6dp"
+            android:layout_marginTop="7dp"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/random3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:layout_marginTop="7dp"
+            android:background="#45c5e6"
+            android:text="Doctor's appointment at 5pm."
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="24sp" />-->
+
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/colorBG">
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorBG"
-                android:padding="10dp" />
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ListViewHome"
+                android:background="#30A5D3">
+
+            </ListView>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/FloatingBTN"
@@ -143,14 +179,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
                 android:layout_margin="16dp"
+                android:backgroundTint="#FFFFFF"
                 android:fadeScrollbars="true"
                 android:keepScreenOn="false"
                 android:onClick="FloatingBTN"
                 android:src="@drawable/plus"
-                android:tint="@color/design_default_color_on_secondary"
                 app:elevation="6dp"
-                app:fabSize="normal"
-                app:rippleColor="@color/design_default_color_on_secondary" />
+                app:fabSize="normal" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -16,7 +16,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Me_or_profile_title"
-        app:srcCompat="@drawable/oldman" />
+        app:srcCompat="@drawable/oldman"
+        tools:srcCompat="@drawable/oldman" />
 
     <TextView
         android:id="@+id/Me_or_profile_title"
