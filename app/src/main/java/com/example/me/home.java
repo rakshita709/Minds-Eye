@@ -39,21 +39,26 @@ public class home extends Fragment implements ItemAdapter.Callback {
     }
 
     private void addListener() {
-        final EditText taskEditText = new EditText(getContext());
-        AlertDialog dialog = new AlertDialog.Builder(getContext())
-                .setTitle("Add New Task")
-                .setMessage("What is the task?")
-                .setView(taskEditText)
-                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String task = String.valueOf(taskEditText.getText());
-                        dBhelper.insertNewTask(task);
-                        loadTaskList();
-                    }
-                })
-                .setNegativeButton("Cancel",null)
-                .create();
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final EditText taskEditText = new EditText(getContext());
+                AlertDialog dialog = new AlertDialog.Builder(getContext())
+                        .setTitle("Add New Task")
+                        .setMessage("What is the task?")
+                        .setView(taskEditText)
+                        .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String task = String.valueOf(taskEditText.getText());
+                                dBhelper.insertNewTask(task);
+                                loadTaskList();
+                            }
+                        })
+                        .setNegativeButton("Cancel",null)
+                        .create();
+            }
+        });
     }
 
     private void loadTaskList() {

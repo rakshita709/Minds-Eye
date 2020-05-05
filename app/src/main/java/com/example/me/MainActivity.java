@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bottomNavigation = findViewById(R.id.bottom_navigation);
 
+        System.out.print("Hello");
+
         Temp = findViewById(R.id.Temperature_number);
         Date = findViewById(R.id.Date);
         City = findViewById(R.id.City);
