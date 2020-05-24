@@ -66,33 +66,7 @@ public class MainActivity extends AppCompatActivity {
         City = findViewById(R.id.City);
         Description = findViewById(R.id.Temperature_Description);
 
-
-        /*button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String phoneNum1 = "8218098475";
-                String phoneNumber = "tel:" + phoneNum1;
-
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse(phoneNumber));
-                if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    //Toast.makeText(MainActivity.this,"Calls something I guess!", Toast.LENGTH_LONG).show();
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
-                startActivity(intent);
-            }
-        });*/
-
         loadFragment(new home());
-
-
         findWeather();
 
         BottomNavigationView.OnNavigationItemSelectedListener navigation =
@@ -197,46 +171,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void FloatingBTN(View view) {
+    /*public void FloatingBTN(View view) {
         FloatingActionButton fab = findViewById(R.id.FloatingBTN);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
                 Toast.makeText(MainActivity.this, "FAB Clicked!", Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    /*public void Call1(View view)
-    {
-        String phoneNumber="8755555444";
-        Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse(phoneNumber));
-
-        startActivity(callIntent);
-    }
-
-    public void Call2(View view)
-    {
-        String phoneNumber="8218098475";
-
-        Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse(phoneNumber));
-
-        startActivity(callIntent);
-    }
-
-    public void Call3(View view)
-    {
-        String phoneNumber="9811921380";
-
-        Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse(phoneNumber));
-
-        startActivity(callIntent);
     }*/
-
 
 }

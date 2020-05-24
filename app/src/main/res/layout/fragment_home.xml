@@ -35,7 +35,7 @@
             android:fontFamily="@font/source_code_pro_medium"
             android:paddingTop="40dp"
             android:paddingBottom="10dp"
-            android:text="21-Apr-2020"
+            android:text="29-May-2020"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="30sp"
@@ -96,12 +96,12 @@
             <TextView
                 android:id="@+id/Temperature_Description"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="61dp"
                 android:paddingRight="10dp"
                 android:text="Sunny during the day"
-                android:textAlignment="viewEnd"
+                android:textAlignment="textEnd"
                 android:textColor="@android:color/black"
-                android:textSize="24sp" />
+                android:textSize="23sp" />
 
 
         </LinearLayout>
@@ -182,7 +182,6 @@
                 android:backgroundTint="#FFFFFF"
                 android:fadeScrollbars="true"
                 android:keepScreenOn="false"
-                android:onClick="FloatingBTN"
                 android:src="@drawable/plus"
                 app:elevation="6dp"
                 app:fabSize="normal" />

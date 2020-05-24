@@ -2,6 +2,7 @@ package com.example.me;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ public class home extends Fragment implements ItemAdapter.Callback {
         add = rootLayout.findViewById(R.id.FloatingBTN);
         list = rootLayout.findViewById(R.id.ListViewHome);
 
-        dBhelper = new DBhelper(getContext());
+        dBhelper = new DBhelper(rootLayout.getContext());
 
         addListener();
         return rootLayout;
@@ -42,9 +43,12 @@ public class home extends Fragment implements ItemAdapter.Callback {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final EditText taskEditText = new EditText(getContext());
-                AlertDialog dialog = new AlertDialog.Builder(getContext())
-                        .setTitle("Add New Task")
+                Log.i("FAB", "onClick: clicked!");
+
+
+                final EditText taskEditText = new EditText(rootLayout.getContext());
+                AlertDialog.Builder dialog = new AlertDialog.Builder(rootLayout.getContext());
+                        dialog.setTitle("Add New Task")
                         .setMessage("What is the task?")
                         .setView(taskEditText)
                         .setPositiveButton("Add", new DialogInterface.OnClickListener() {
@@ -57,14 +61,19 @@ public class home extends Fragment implements ItemAdapter.Callback {
                         })
                         .setNegativeButton("Cancel",null)
                         .create();
+
+
+
+                Log.i("FAB", "onClick: clicked x2!");
             }
+
         });
     }
 
     private void loadTaskList() {
         ArrayList<String> taskList = dBhelper.getTaskList();
         if(mAdapter == null) {
-            mAdapter = new ItemAdapter(getContext(), taskList, this);
+            mAdapter = new ItemAdapter(rootLayout.getContext(), taskList, this);
             list.setAdapter(mAdapter);
         }
         else {

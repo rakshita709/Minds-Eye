@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -31,54 +32,114 @@
         android:layout_height="match_parent"
         android:padding="15dp">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|top">
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
 
-            <Button
-                android:id="@+id/Call1"
-                style="@style/AppTheme"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorBG"
+                android:layout_margin="15dp"
                 android:padding="10dp"
-                android:text="Call Aeshna"
-                android:textAlignment="center"
-                android:textColor="@color/design_default_color_on_secondary"
-                android:textSize="24sp" />
+                android:background="@color/ColorLayer"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/Call2"
-                style="@style/AppTheme"
-                android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/Call1"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@color/colorBG"
+                    android:padding="10dp"
+                    android:text="Call Aeshna"
+                    android:textAlignment="center"
+                    android:textColor="@color/design_default_color_on_secondary"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:id="@+id/Image_Aeshna"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:src="@mipmap/aeshna"
+                    app:srcCompat="@mipmap/aeshna" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorBG"
+                android:layout_margin="15dp"
                 android:padding="10dp"
-                android:text="Call Vandana"
-                android:layout_toRightOf="@id/Call1"
-                android:layout_marginLeft="20dp"
-                android:textAlignment="center"
-                android:textColor="@color/design_default_color_on_secondary"
-                android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/Call3"
-                style="@style/AppTheme"
-                android:layout_width="wrap_content"
+                android:background="@color/ColorLayer"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/Call2"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@color/colorBG"
+                    android:padding="10dp"
+                    android:text="Call Vandana"
+                    android:textAlignment="center"
+                    android:textColor="@color/design_default_color_on_secondary"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:id="@+id/Image_Vandana"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:src="@mipmap/vandana" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorBG"
+                android:layout_margin="15dp"
                 android:padding="10dp"
-                android:text="Call Mom"
-                android:layout_below="@id/Call1"
-                android:layout_centerInParent="true"
-                android:layout_margin="20dp"
-                android:layout_marginLeft="20dp"
-                android:textAlignment="center"
-                android:textColor="@color/design_default_color_on_secondary"
-                android:textSize="24sp" />
+                android:background="@color/ColorLayer"
+                android:orientation="horizontal">
 
-        </RelativeLayout>
+                <Button
+                    android:id="@+id/Call3"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@color/colorBG"
+                    android:padding="10dp"
+                    android:text="Call Mom"
+                    android:textAlignment="center"
+                    android:textColor="@color/design_default_color_on_secondary"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:id="@+id/Image_Maa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:src="@mipmap/maa" />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/FloatingBTNCall"

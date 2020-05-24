@@ -28,7 +28,36 @@ public class calls extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        /*ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_call, null);
+        Button call1 = (Button) root.find */
+
         View viewInflater = inflater.inflate(R.layout.fragment_call, container, false);
+
+        Button call1 = (Button) viewInflater.findViewById(R.id.Call1);
+        Button call2 = (Button) viewInflater.findViewById(R.id.Call2);
+        Button call3 = (Button) viewInflater.findViewById(R.id.Call3);
+
+        call1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialContactPhone("8755555444");
+            }
+        });
+
+        call2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialContactPhone("8218098475");
+            }
+        });
+
+        call3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialContactPhone("9811921380");
+            }
+        });
+
 
         /*Button button1 = view.findViewById(R.id.Call1);
         Button button2 = view.findViewById(R.id.Call2);
@@ -50,6 +79,11 @@ public class calls extends Fragment {
 
         // Inflate the layout for this fragment
         return viewInflater;
+    }
+
+
+    private void dialContactPhone(final String phoneNumber) {
+        startActivity(new Intent(Intent.ACTION_CALL, Uri.fromParts("tel", phoneNumber, null)));
     }
 
     /*public void Call1(View view)
