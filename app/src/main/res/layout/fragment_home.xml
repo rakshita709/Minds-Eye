@@ -56,7 +56,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="21dp"
             android:background="@color/colorBG"
             android:orientation="vertical">
 
@@ -165,14 +165,57 @@
             android:layout_height="match_parent"
             android:background="@color/colorBG">
 
+            <androidx.cardview.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/CardViewHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:paddingLeft="20dp"
+                android:layout_margin="15dp"
+                android:clickable="true">
 
-            <ListView
-                android:id="@+id/ListViewHome"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#30A5D3">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-            </ListView>
+                    <TextView
+                        android:id="@+id/EventName_CardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Event Name"
+                        android:textSize="20dp"/>
+
+                    <TextView
+                        android:id="@+id/Time_CardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Time"
+                        android:textSize="20dp"
+                        android:layout_below="@id/EventName_CardView"/>
+
+                    <TextView
+                        android:id="@+id/Date_CardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Date"
+                        android:layout_below="@id/Time_CardView"
+                        android:textSize="20dp"/>
+
+                    <TextView
+                        android:id="@+id/Radio_CardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Repeats Everyday: Yes or No"
+                        android:layout_below="@id/Date_CardView"
+                        android:textSize="20dp"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/FloatingBTN"

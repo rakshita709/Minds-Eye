@@ -1,20 +1,15 @@
 package com.example.me;
 
-import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,7 +20,10 @@ public class home extends Fragment implements ItemAdapter.Callback {
 
     private View rootLayout;
     private FloatingActionButton add;
-    private ListView list;
+    private CardView card;
+    TextView everydayEvent,event_name,date,time;
+
+    ReminderHandler obj;
 
     DBhelper dBhelper;
     ItemAdapter mAdapter;
@@ -34,14 +32,33 @@ public class home extends Fragment implements ItemAdapter.Callback {
                              Bundle savedInstanceState) {
         rootLayout = inflater.inflate(R.layout.fragment_home, container, false);
         add = rootLayout.findViewById(R.id.FloatingBTN);
-        list = rootLayout.findViewById(R.id.ListViewHome);
 
 
-        dBhelper = new DBhelper(getActivity());
+        card = rootLayout.findViewById(R.id.CardViewHome);
 
+        card.setCardBackgroundColor(Color.parseColor("#E6E6E6"));
+        card.setMaxCardElevation(0);
+        card.setRadius(5);
+
+        event_name.setText(obj.getEvent_name());
+        date.setText(obj.getDate());
+        time.setText(obj.getTime());
+        everydayEvent.setText(obj.getEverydayEvent());
+
+        /* ALERT DIALOG BOX - The origins
+        dBhelper = new DBhelper(getActivity());*/
         addListener();
 
+        setDataToTV();
+
         return rootLayout;
+    }
+
+    private void setDataToTV() {
+        everydayEvent = rootLayout.findViewById(R.id.Radio_CardView);
+        event_name = rootLayout.findViewById(R.id.EventName_CardView);
+        date = rootLayout.findViewById(R.id.Date_CardView);
+        time = rootLayout.findViewById(R.id.Time_CardView);
     }
 
     private void addListener() {
@@ -50,7 +67,14 @@ public class home extends Fragment implements ItemAdapter.Callback {
             public void onClick(View v) {
                 Log.i("FAB", "onClick: clicked!");
 
-                createDialogBox();
+                /* ALERT DIALOG BOX - The origins
+                createDialogBox();*/
+
+                //New Code for Reminder
+                Intent intent = new Intent(rootLayout.getContext(),ReminderHandler.class);
+                startActivity(intent);
+
+                //Toast.makeText(rootLayout.getContext(),"FAB clicked", Toast.LENGTH_LONG).show();
 
                 Log.i("FAB", "end!");
             }
@@ -58,7 +82,8 @@ public class home extends Fragment implements ItemAdapter.Callback {
         });
     }
 
-    private void createDialogBox() {
+    /* ALERT DIALOG BOX - The origins
+        private void createDialogBox() {
         final EditText taskEditText = new EditText(rootLayout.getContext());
         AlertDialog.Builder dialog = new AlertDialog.Builder(rootLayout.getContext());
         dialog.setTitle("Add New Task")
@@ -76,13 +101,13 @@ public class home extends Fragment implements ItemAdapter.Callback {
                 .show();
 
 
-    }
+    }*/
 
     private void loadTaskList() {
         ArrayList<String> taskList = dBhelper.getTaskList();
         if(mAdapter == null) {
             mAdapter = new ItemAdapter(getActivity(), taskList, this);
-            list.setAdapter(mAdapter);
+            //list.setAdapter(mAdapter);
         }
         else {
             mAdapter.clear();

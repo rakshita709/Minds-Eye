@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:padding="15dp">
+
+    <EditText
+        android:id="@+id/Event_Name"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:layout_margin="5dp"
+        android:padding="7dp"
+        android:hint="Add Title"
+        android:textSize="24dp"/>
+
+    <Button
+        android:id="@+id/save_Reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/Event_Name"
+        android:layout_alignParentTop="true"
+        android:layout_below="@id/datePicker"/>
+
+    <TimePicker
+        android:id="@+id/TimePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="194dp"
+        android:layout_below="@id/Event_Name"
+        android:layout_alignParentLeft="true"
+        android:timePickerMode="spinner" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/TimePicker"
+        android:background="#fff"
+        android:layout_margin="5dp"/>
+
+    <RadioGroup
+        android:id="@+id/RadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/TimePicker"
+        android:layout_below="@id/Event_Name"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repeat Everyday?"
+            android:textSize="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/action_Yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"/>
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/action_No"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="No"/>
+
+
+    </RadioGroup>
+
+</RelativeLayout>
