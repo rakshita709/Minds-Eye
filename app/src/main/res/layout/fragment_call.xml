@@ -66,8 +66,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="#FFFFFF"
-                    android:src="@mipmap/aeshna"
-                    app:srcCompat="@mipmap/aeshna" />
+                    android:src="@drawable/aesh"
+                    app:srcCompat="@drawable/aesh" />
 
 
             </LinearLayout>
@@ -101,7 +101,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="#FFFFFF"
-                    android:src="@mipmap/vandana" />
+                    android:src="@drawable/brandy"
+                    app:srcCompat="@drawable/brandy" />
 
             </LinearLayout>
 
@@ -132,7 +133,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="#FFFFFF"
-                    android:src="@mipmap/maa" />
+                    android:src="@drawable/maa_image"
+                    app:srcCompat="@drawable/maa_image" />
 
             </LinearLayout>
 
@@ -140,17 +142,6 @@
 
 
         </LinearLayout>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/FloatingBTNCall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="26dp"
-            android:src="@drawable/plus"
-            android:tint="@color/design_default_color_on_secondary" />
-
-
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

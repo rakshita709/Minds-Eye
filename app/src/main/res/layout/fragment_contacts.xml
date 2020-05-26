@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorBG">
 
     <TextView
+        android:id="@+id/Contact_Information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
@@ -11,11 +14,138 @@
         android:paddingLeft="25dp"
         android:paddingTop="40dp"
         android:paddingBottom="10dp"
-        android:text="Contacts: People you may know"
+        android:text="Your friends and family"
         android:layout_alignParentTop="true"
         android:textAlignment="viewStart"
         android:textColor="@android:color/black"
         android:textSize="36sp"
         android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/Contact_Aeshna"
+        android:layout_width="168dp"
+        android:layout_height="192dp"
+        android:layout_below="@id/Contact_Information"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/ColorLayer"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <ImageView
+            android:id="@+id/Aeshna_Contact_Image"
+            android:layout_width="127dp"
+            android:layout_height="104dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            app:srcCompat="@drawable/aesh" />
+
+        <TextView
+            android:id="@+id/Aeshna_Contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aeshna"
+            android:textColor="#ffffff"
+            android:textSize="25dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            />
+
+        <TextView
+            android:id="@+id/Aeshna_Contact_Relation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friend"
+            android:textColor="#ffffff"
+            android:textSize="25dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Contact_Vandana"
+        android:layout_width="168dp"
+        android:layout_height="192dp"
+        android:layout_below="@id/Contact_Information"
+        android:layout_toRightOf="@id/Contact_Aeshna"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/ColorLayer"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <ImageView
+            android:id="@+id/Vandana_Contact_Image"
+            android:layout_width="139dp"
+            android:layout_height="108dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            app:srcCompat="@drawable/brandy" />
+
+        <TextView
+            android:id="@+id/Vandana_Contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vandana"
+            android:textColor="#ffffff"
+            android:textSize="25dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            />
+
+        <TextView
+            android:id="@+id/Vandana_Contact_Relation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friend"
+            android:textColor="#ffffff"
+            android:textSize="25dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="168dp"
+        android:layout_height="192dp"
+        android:orientation="vertical"
+        android:layout_below="@id/Contact_Aeshna"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:background="@color/ColorLayer">
+
+        <ImageView
+            android:layout_width="129dp"
+            android:layout_height="98dp"
+            android:src="@drawable/maa_image"
+            app:srcCompat="@drawable/maa_image" />
+
+        <TextView
+            android:id="@+id/Maa_Contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Madhavi"
+            android:textColor="#ffffff"
+            android:textSize="25dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            />
+
+        <TextView
+            android:id="@+id/Maa_Contact_Relation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mother"
+            android:textColor="#ffffff"
+            android:textSize="25dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            />
+
+
+
+    </LinearLayout>
 
 </RelativeLayout>

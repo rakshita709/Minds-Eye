@@ -1,34 +1,16 @@
 package com.example.me;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.Manifest;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,14 +19,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
@@ -66,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         City = findViewById(R.id.City);
         Description = findViewById(R.id.Temperature_Description);
 
-        loadFragment(new home());
+        //loadFragment(new home());
         findWeather();
 
         BottomNavigationView.OnNavigationItemSelectedListener navigation =
@@ -85,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                                 return true;
 
                             case R.id.navigation_camera:
-                                selectedFragment = new camera();
+                                selectedFragment = new Identify();
                                 loadFragment(selectedFragment);
                                 return true;
 
@@ -104,17 +84,6 @@ public class MainActivity extends AppCompatActivity {
                 };
 
         bottomNavigation.setOnNavigationItemSelectedListener(navigation);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_to_do_list,menu);
-
-        Drawable icon = menu.getItem(0).getIcon();
-        icon.mutate();
-        icon.setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_IN);
-
-        return super.onCreateOptionsMenu(menu);
     }
 
     private void loadFragment(Fragment fragment) {
@@ -169,19 +138,4 @@ public class MainActivity extends AppCompatActivity {
         queue.add(jor);
 
     }
-
-
-    /*public void FloatingBTN(View view) {
-        FloatingActionButton fab = findViewById(R.id.FloatingBTN);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                Toast.makeText(MainActivity.this, "FAB Clicked!", Toast.LENGTH_LONG).show();
-            }
-        });
-    }*/
-
 }

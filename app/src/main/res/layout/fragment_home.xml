@@ -20,7 +20,7 @@
             android:layout_alignParentTop="true"
             android:fontFamily="@font/source_code_pro_medium"
             android:paddingLeft="15dp"
-            android:paddingTop="40dp"
+            android:paddingTop="15dp"
             android:paddingBottom="10dp"
             android:text="Today: "
             android:textAlignment="textStart"
@@ -33,11 +33,12 @@
             android:layout_width="253dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/source_code_pro_medium"
-            android:paddingTop="40dp"
+            android:hint="29-May-2020"
+            android:paddingTop="15dp"
             android:paddingBottom="10dp"
-            android:text="29-May-2020"
             android:textAlignment="center"
             android:textColor="@android:color/black"
+            android:textColorHint="?android:attr/textColorHint"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -47,8 +48,8 @@
     <LinearLayout
         android:id="@+id/Forecast"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="102dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="80dp"
         android:background="@color/colorAccent"
         android:orientation="horizontal">
 
@@ -62,8 +63,8 @@
             <TextView
                 android:id="@+id/Temperature_number"
                 android:layout_width="match_parent"
-                android:layout_height="106dp"
-                android:text="27 °C"
+                android:layout_height="87dp"
+                android:hint="27 °C"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/black"
                 android:textSize="70dp"
@@ -72,8 +73,8 @@
             <TextView
                 android:id="@+id/City"
                 android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:text="Delhi"
+                android:layout_height="61dp"
+                android:hint="Delhi"
                 android:textAlignment="viewStart"
                 android:textColor="@android:color/black"
                 android:textSize="24sp" />
@@ -81,7 +82,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:background="@color/colorBG"
@@ -97,9 +98,9 @@
                 android:id="@+id/Temperature_Description"
                 android:layout_width="match_parent"
                 android:layout_height="61dp"
+                android:hint="Sunny"
                 android:paddingRight="10dp"
-                android:text="Sunny during the day"
-                android:textAlignment="textEnd"
+                android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="23sp" />
 
@@ -113,18 +114,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="235dp"
         android:layout_marginRight="20dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="42dp"
             android:background="@color/colorPrimaryDark"
             android:text="Events today: "
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textSize="24dp"
+            android:textSize="28dp"
             android:textStyle="bold" />
 
         <!--<TextView

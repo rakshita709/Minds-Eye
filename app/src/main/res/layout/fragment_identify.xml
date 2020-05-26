@@ -12,7 +12,7 @@
         android:paddingLeft="25dp"
         android:paddingTop="40dp"
         android:paddingBottom="10dp"
-        android:text="Camera"
+        android:text="Identifying People"
         android:layout_alignParentTop="true"
         android:textAlignment="viewStart"
         android:textColor="@android:color/black"
@@ -20,18 +20,33 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/textView"
+        android:id="@+id/CameraBtn"
         style="@style/Widget.MaterialComponents.TextView"
         android:layout_width="339dp"
         android:layout_height="125dp"
         android:layout_below="@id/ContactsFragmentHeader"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="72dp"
-        android:background="@color/colorBG"
+        android:background="@color/ColorLayer"
         android:text="Click this button to take a picture of someone you may not recognise"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="@color/design_default_color_on_secondary"
+        android:textColor="#fff"
+        android:textSize="23dp" />
+
+    <Button
+        android:id="@+id/ChatBotBtn"
+        style="@style/Widget.MaterialComponents.TextView"
+        android:layout_width="339dp"
+        android:layout_height="125dp"
+        android:layout_below="@id/ContactsFragmentHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:background="@color/ColorLayer"
+        android:text="Click to play a game!"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#fff"
         android:textSize="23dp" />
     
 
