@@ -1,81 +1,42 @@
 package com.example.me;
 
 
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TimePicker;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class RemindersData  {
 
-public class RemindersData extends AppCompatActivity {
-    EditText EventTitle = findViewById(R.id.Event_Name);
-    TimePicker timePicker = findViewById(R.id.TimePicker);
-    DatePicker datePicker = findViewById(R.id.datePicker);
+    String title;
+    Long time;
+    Boolean everyday;
 
-    RadioGroup radioGroup = findViewById(R.id.RadioGroup);
-    RadioButton RadioBtn;
-
-    String title_event, time_event, date_event;
-    String Everyday_Answer;
-
-    public RemindersData()
+    public RemindersData(String title, Long time,  Boolean everyday)
     {
-        title_event = "title";
-        time_event = "Event";
-        date_event = "Date";
-        Everyday_Answer = "No";
-        Setter();
+        this.title = title;
+        this.everyday = everyday;
+        this.time = time;
     }
 
-    void Setter()
+    String getTitle()
     {
-        title_event = EventTitle.getText().toString();
+        return title;
+    }
 
-        int hour = timePicker.getHour(); hour-=12;
-        int min = timePicker.getMinute();
+    String getDate() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy");
+        return simpleDateFormat.format(new Date(time));
+    }
 
-        time_event = "At " + hour + ":" + min;
+    String getTime() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+        return simpleDateFormat.format(new Date(time));
+    }
 
-        int day = datePicker.getDayOfMonth();
-        int month = datePicker.getMonth() + 1;
-        int year = datePicker.getYear();
-
-        date_event = "On " + day + "." + month + "." + year;
-
-        int selectedID = radioGroup.getCheckedRadioButtonId();
-        RadioBtn = findViewById(selectedID);
-        if(selectedID==-1)
-        {
-            Everyday_Answer = "No";
-        }
+    String getEveryday() {
+        if(everyday)
+            return "YES";
         else
-        {
-            Everyday_Answer = RadioBtn.getText().toString();
-        }
-
+            return "NO";
     }
-
-    String getTitle_event()
-    {
-        return title_event;
-    }
-
-    String getDate_event()
-    {
-        return date_event;
-    }
-
-    String getTime_event()
-    {
-        return time_event;
-    }
-
-    String getEveryday_Answer()
-    {
-        return Everyday_Answer;
-    }
-
 
 }

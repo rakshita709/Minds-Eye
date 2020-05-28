@@ -5,61 +5,55 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class ItemAdapter extends ArrayAdapter<String> {
-
-    public interface Callback{
-        void deleteElement(String task);
-    }
+public class ItemAdapter extends ArrayAdapter<RemindersData> {
 
     private Context mContext;
-    private Callback mCallback;
 
     private static class ViewHolder {
-        TextView text;
-        Button delete;
+        TextView time;
+        TextView date;
+        TextView event_name;
+        TextView everydayEvent;
+
+        public ViewHolder(View convertView) {
+            everydayEvent = convertView.findViewById(R.id.Radio_CardView);
+            event_name = convertView.findViewById(R.id.EventName_CardView);
+            date = convertView.findViewById(R.id.Date_CardView);
+            time = convertView.findViewById(R.id.Time_CardView);
+        }
     }
 
-    public ItemAdapter(@NonNull Context context, ArrayList<String> objects, Callback callback) {
+    public ItemAdapter(@NonNull Context context, ArrayList<RemindersData> objects) {
         super(context, R.layout.row, objects);
         mContext = context;
-        mCallback = callback;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        final String data = getItem(position);
+        final RemindersData data = getItem(position);
         ViewHolder viewHolder;
 
         if (convertView == null) {
-
-            viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.row, parent, false);
-            viewHolder.text = convertView.findViewById(R.id.taskTitle);
-            viewHolder.delete = convertView.findViewById(R.id.BtnDelete);
+            viewHolder = new ViewHolder(convertView);
 
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.text.setText(data);
-        viewHolder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mCallback.deleteElement(data);
-            }
-        });
+        viewHolder.event_name.setText(data.getTitle());
+        viewHolder.date.setText(data.getDate());
+        viewHolder.everydayEvent.setText(data.getEveryday());
+        viewHolder.time.setText(data.getTime());
 
         return convertView;
     }

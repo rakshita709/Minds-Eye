@@ -1,10 +1,12 @@
 package com.example.me;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -27,10 +29,14 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements home.HomeCallback {
+
+    private static final int ADD_REQUEST = 1;
+    private static final int ADD_RESULT = 2;
 
     BottomNavigationView bottomNavigation;
     TextView Temp, Date, City, Description;
+    private home home;
 
 
     @Override
@@ -56,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
                         Fragment selectedFragment = null;
                         switch (item.getItemId()) {
                             case R.id.navigation_home:
-                                selectedFragment = new home();
+                                selectedFragment = new home(MainActivity.this);
+                                home = (com.example.me.home) selectedFragment;
                                 loadFragment(selectedFragment);
                                 return true;
                             case R.id.navigation_contacts:
@@ -137,5 +144,20 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(jor);
 
+    }
+
+    @Override
+    public void addContent() {
+        Intent intent = new Intent(this, ReminderActivity.class);
+        startActivityForResult(intent, ADD_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == ADD_REQUEST && resultCode == ADD_RESULT) {
+            if(home != null)
+                home.refresh();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

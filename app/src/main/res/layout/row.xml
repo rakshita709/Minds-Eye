@@ -1,32 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="3dp">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/CardViewHome"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="#e6e6e6"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="8dp"
+    android:clickable="true">
 
-    <TextView
-        android:id="@+id/taskTitle"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_alignBottom="@+id/BtnDelete"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/BtnDelete"
-        android:gravity="center_vertical"
-        android:hint="Text Here"
-        android:textSize="24dp" />
+        android:padding="20dp"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/BtnDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:onClick="deleteTask"
-        android:textSize="20dp"
-        android:text="Delete" />
+        <TextView
+            android:id="@+id/EventName_CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Event Name"
+            android:textSize="20dp"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/Time_CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Time"
+            android:textSize="20dp"
+            android:layout_below="@id/EventName_CardView"/>
+
+        <TextView
+            android:id="@+id/Date_CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date"
+            android:layout_below="@id/Time_CardView"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/Radio_CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Repeats Everyday: Yes or No"
+            android:layout_below="@id/Date_CardView"
+            android:textSize="20dp"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
