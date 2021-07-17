@@ -4,6 +4,7 @@ This was my first attempt at using Adobe XD (Clearly!)
 
 The user/patient would be able to keep a track of their daily activities and add tasks that they need to perform. Not only that they could also add their own other taska or their caregivers (family, nurses etc) could add tasks for them remotely.
 
+Research Paper: [Minds_Eye.pdf](https://github.com/rakshita709/Minds-Eye/files/6834091/Minds_Eye.pdf)
 
 Screen UI:
 
@@ -16,7 +17,7 @@ Calls Screen - The patient can see a list of people they know along with their n
 
 ![Calls](https://user-images.githubusercontent.com/36971218/115460778-8409a100-a1dd-11eb-9f7b-69e63380f020.jpg)
 
-User Profile - The patient can see their details on this screen. Details suck as: Name, Age, Phone Number, Address
+User Profile - The patient can see their details on this screen. Details suck as: Name, Age, Phone Number, Address.
 
 ![Me](https://user-images.githubusercontent.com/36971218/115460780-8409a100-a1dd-11eb-8ebc-4776aa8d0169.jpg)
 
